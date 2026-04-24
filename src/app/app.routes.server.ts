@@ -6,5 +6,6 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'dashboard', renderMode: RenderMode.Server },
   { path: 'auth/sign-in', renderMode: RenderMode.Server },
   { path: 'auth/sign-up', renderMode: RenderMode.Server },
+  { path: 'colonies/:id', renderMode: RenderMode.Client },
   { path: '**', renderMode: RenderMode.Prerender },
 ];

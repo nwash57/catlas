@@ -9,7 +9,7 @@ import {
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import circle from '@turf/circle';
 
 import { AuthService } from '../auth/auth.service';
@@ -28,6 +28,7 @@ import type { Map as MapLibreMap, Marker } from 'maplibre-gl';
 })
 export class MapPage implements OnDestroy {
   private readonly coloniesService = inject(ColoniesService);
+  private readonly router = inject(Router);
   protected readonly currentUser = inject(AuthService).currentUser;
 
   @ViewChild('mapContainer') private mapContainerRef?: ElementRef<HTMLDivElement>;
@@ -240,25 +241,15 @@ export class MapPage implements OnDestroy {
       },
     });
 
-    const showPopup = (e: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
+    const navigateToColony = (e: maplibregl.MapMouseEvent & { features?: maplibregl.MapGeoJSONFeature[] }) => {
       if (this.isAddingColony()) return;
-      if (!e.features?.[0] || !this.map) return;
-      const props = e.features[0].properties as { name: string; description: string };
-
-      new maplibregl.Popup({ closeButton: true, maxWidth: '280px' })
-        .setLngLat(e.lngLat)
-        .setHTML(
-          `<strong style="font-size:0.9rem;font-family:sans-serif">${props['name']}</strong>` +
-            (props['description']
-              ? `<p style="margin:4px 0 0;font-size:0.8rem;color:#666;font-family:sans-serif">${props['description']}</p>`
-              : '') +
-            `<p style="margin:6px 0 0;font-size:0.75rem;color:#999;font-family:sans-serif;font-style:italic">Approximate area shown for privacy</p>`,
-        )
-        .addTo(this.map);
+      if (!e.features?.[0]) return;
+      const id = e.features[0].properties['id'] as string;
+      void this.router.navigate(['/colonies', id]);
     };
 
-    this.map.on('click', 'colony-dot', showPopup);
-    this.map.on('click', 'colony-fill', showPopup);
+    this.map.on('click', 'colony-dot', navigateToColony);
+    this.map.on('click', 'colony-fill', navigateToColony);
 
     for (const layer of ['colony-dot', 'colony-fill']) {
       this.map.on('mouseenter', layer, () => {

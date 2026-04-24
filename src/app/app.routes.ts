@@ -31,6 +31,11 @@ export const routes: Routes = [
     title: 'Dashboard — Catlas',
   },
   {
+    path: 'colonies/:id',
+    loadComponent: () => import('./colonies/colony-profile').then((m) => m.ColonyProfile),
+    title: 'Colony — Catlas',
+  },
+  {
     path: 'learn',
     loadComponent: () => import('./learn/learn-shell').then((m) => m.LearnShell),
     children: [
