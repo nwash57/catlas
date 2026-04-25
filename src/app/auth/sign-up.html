@@ -1,0 +1,66 @@
+<app-auth-shell eyebrow="Join Catlas" heading="Create your account">
+  <ng-container slot="subhead">
+    Once you're in, you can put a colony on the map or request to join one.
+  </ng-container>
+
+  @if (needsConfirmation()) {
+    <div class="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+      <p class="font-medium">Check your email.</p>
+      <p class="mt-1">
+        We sent a confirmation link to <span class="font-medium">{{ email() }}</span>. Click it to
+        finish signing up.
+      </p>
+    </div>
+  } @else {
+    <form (submit)="submit($event)" class="space-y-5">
+      <label class="block">
+        <span class="text-sm font-medium text-stone-700">Email</span>
+        <input
+          type="email"
+          autocomplete="email"
+          required
+          [ngModel]="email()"
+          (ngModelChange)="email.set($event)"
+          name="email"
+          class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10"
+        />
+      </label>
+      <label class="block">
+        <span class="text-sm font-medium text-stone-700">Password</span>
+        <input
+          type="password"
+          autocomplete="new-password"
+          required
+          minlength="6"
+          [ngModel]="password()"
+          (ngModelChange)="password.set($event)"
+          name="password"
+          class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10"
+        />
+        <span class="mt-1 block text-xs text-stone-500">At least 6 characters.</span>
+      </label>
+
+      @if (errorMessage(); as msg) {
+        <p class="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
+          {{ msg }}
+        </p>
+      }
+
+      <button
+        type="submit"
+        [disabled]="submitting()"
+        class="w-full rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {{ submitting() ? 'Creating account…' : 'Create account' }}
+      </button>
+    </form>
+
+    <p class="mt-6 text-sm text-stone-600">
+      Already have an account?
+      <a routerLink="/auth/sign-in" class="font-medium text-stone-900 underline-offset-4 hover:underline">
+        Sign in
+      </a>
+      .
+    </p>
+  }
+</app-auth-shell>
