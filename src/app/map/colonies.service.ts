@@ -27,7 +27,7 @@ export class ColoniesService {
 
     const { data, error } = await sb
       .from('colonies_public')
-      .select('id, name, description, fuzzed_location, fuzz_radius_m, cover_photo_path, created_at');
+      .select('id, name, description, lat, lng, fuzz_radius_m, cover_photo_path, created_at');
 
     this.loading.set(false);
 
@@ -41,5 +41,27 @@ export class ColoniesService {
       .filter((c): c is ColonyPublic => c !== null);
 
     this.colonies.set(parsed);
+  }
+
+  async create(
+    name: string,
+    description: string | null,
+    lat: number,
+    lng: number,
+    fuzzRadiusM: number,
+  ): Promise<string | null> {
+    const sb = supabaseBrowser();
+    if (!sb) { this.error.set('Supabase not configured'); return null; }
+
+    const { data, error } = await sb.rpc('create_colony', {
+      p_name: name,
+      p_description: description,
+      p_lat: lat,
+      p_lng: lng,
+      p_fuzz_radius_m: fuzzRadiusM,
+    });
+
+    if (error) { this.error.set(error.message); return null; }
+    return data as string;
   }
 }

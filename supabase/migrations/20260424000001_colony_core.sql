@@ -250,7 +250,8 @@ select
   id,
   name,
   description,
-  fuzzed_location,
+  ST_Y(fuzzed_location::geometry) as lat,
+  ST_X(fuzzed_location::geometry) as lng,
   fuzz_radius_m,
   cover_photo_path,
   created_at
