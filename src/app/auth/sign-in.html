@@ -3,7 +3,7 @@
 
   <form (submit)="submit($event)" class="space-y-5">
     <label class="block">
-      <span class="text-sm font-medium text-stone-700">Email</span>
+      <span class="text-sm font-medium text-stone-700 dark:text-stone-300">Email</span>
       <input
         type="email"
         autocomplete="email"
@@ -11,11 +11,11 @@
         [ngModel]="email()"
         (ngModelChange)="email.set($event)"
         name="email"
-        class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10"
+        class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-50 dark:focus:border-stone-400 dark:focus:ring-stone-400/10"
       />
     </label>
     <label class="block">
-      <span class="text-sm font-medium text-stone-700">Password</span>
+      <span class="text-sm font-medium text-stone-700 dark:text-stone-300">Password</span>
       <input
         type="password"
         autocomplete="current-password"
@@ -24,12 +24,12 @@
         [ngModel]="password()"
         (ngModelChange)="password.set($event)"
         name="password"
-        class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10"
+        class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-50 dark:focus:border-stone-400 dark:focus:ring-stone-400/10"
       />
     </label>
 
     @if (errorMessage(); as msg) {
-      <p class="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
+      <p class="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-300">
         {{ msg }}
       </p>
     }
@@ -37,15 +37,15 @@
     <button
       type="submit"
       [disabled]="submitting()"
-      class="w-full rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-60"
+      class="w-full rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
     >
       {{ submitting() ? 'Signing in…' : 'Sign in' }}
     </button>
   </form>
 
-  <p class="mt-6 text-sm text-stone-600">
+  <p class="mt-6 text-sm text-stone-600 dark:text-stone-400">
     New here?
-    <a routerLink="/auth/sign-up" class="font-medium text-stone-900 underline-offset-4 hover:underline">
+    <a routerLink="/auth/sign-up" class="font-medium text-stone-900 underline-offset-4 hover:underline dark:text-stone-50">
       Create an account
     </a>
     .

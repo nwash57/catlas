@@ -37,7 +37,7 @@ Do not compromise these without an explicit conversation:
 ## Common commands
 
 ```bash
-pnpm start                    # ng serve on http://localhost:4200
+pnpm start                    # ng serve on http://localhost:4201
 pnpm build                    # production build into dist/
 pnpm test                     # Vitest
 pnpm run serve:ssr:catlas     # run the built SSR server

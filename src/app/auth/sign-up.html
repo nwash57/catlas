@@ -4,7 +4,7 @@
   </ng-container>
 
   @if (needsConfirmation()) {
-    <div class="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+    <div class="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-300">
       <p class="font-medium">Check your email.</p>
       <p class="mt-1">
         We sent a confirmation link to <span class="font-medium">{{ email() }}</span>. Click it to
@@ -14,7 +14,7 @@
   } @else {
     <form (submit)="submit($event)" class="space-y-5">
       <label class="block">
-        <span class="text-sm font-medium text-stone-700">Email</span>
+        <span class="text-sm font-medium text-stone-700 dark:text-stone-300">Email</span>
         <input
           type="email"
           autocomplete="email"
@@ -22,11 +22,11 @@
           [ngModel]="email()"
           (ngModelChange)="email.set($event)"
           name="email"
-          class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10"
+          class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-50 dark:focus:border-stone-400 dark:focus:ring-stone-400/10"
         />
       </label>
       <label class="block">
-        <span class="text-sm font-medium text-stone-700">Password</span>
+        <span class="text-sm font-medium text-stone-700 dark:text-stone-300">Password</span>
         <input
           type="password"
           autocomplete="new-password"
@@ -35,13 +35,13 @@
           [ngModel]="password()"
           (ngModelChange)="password.set($event)"
           name="password"
-          class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10"
+          class="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-stone-900 shadow-sm transition focus:border-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900/10 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-50 dark:focus:border-stone-400 dark:focus:ring-stone-400/10"
         />
         <span class="mt-1 block text-xs text-stone-500">At least 6 characters.</span>
       </label>
 
       @if (errorMessage(); as msg) {
-        <p class="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
+        <p class="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-300">
           {{ msg }}
         </p>
       }
@@ -49,15 +49,15 @@
       <button
         type="submit"
         [disabled]="submitting()"
-        class="w-full rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-60"
+        class="w-full rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
       >
         {{ submitting() ? 'Creating account…' : 'Create account' }}
       </button>
     </form>
 
-    <p class="mt-6 text-sm text-stone-600">
+    <p class="mt-6 text-sm text-stone-600 dark:text-stone-400">
       Already have an account?
-      <a routerLink="/auth/sign-in" class="font-medium text-stone-900 underline-offset-4 hover:underline">
+      <a routerLink="/auth/sign-in" class="font-medium text-stone-900 underline-offset-4 hover:underline dark:text-stone-50">
         Sign in
       </a>
       .

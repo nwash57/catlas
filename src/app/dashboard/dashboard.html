@@ -1,22 +1,25 @@
-<div class="min-h-dvh bg-stone-50 text-stone-900 antialiased">
+<div class="min-h-dvh bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-50">
   <header
     class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
   >
-    <a routerLink="/" class="font-serif text-xl font-semibold tracking-tight text-stone-900">
+    <a routerLink="/" class="font-serif text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
       Catlas
     </a>
-    <button
-      type="button"
-      (click)="signOut()"
-      [disabled]="signingOut()"
-      class="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-900 transition hover:border-stone-900 disabled:cursor-not-allowed disabled:opacity-60"
-    >
-      {{ signingOut() ? 'Signing out…' : 'Sign out' }}
-    </button>
+    <div class="flex items-center gap-3">
+      <app-theme-toggle />
+      <button
+        type="button"
+        (click)="signOut()"
+        [disabled]="signingOut()"
+        class="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-stone-900 transition hover:border-stone-900 disabled:cursor-not-allowed disabled:opacity-60 dark:border-stone-700 dark:text-stone-50 dark:hover:border-stone-50"
+      >
+        {{ signingOut() ? 'Signing out…' : 'Sign out' }}
+      </button>
+    </div>
   </header>
 
   <main class="mx-auto max-w-6xl px-6 pt-8 pb-24">
-    <p class="mb-3 font-mono text-xs tracking-[0.2em] text-amber-700 uppercase">
+    <p class="mb-3 font-mono text-xs tracking-[0.2em] text-amber-700 uppercase dark:text-amber-500">
       Your dashboard
     </p>
     <h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -26,7 +29,7 @@
         Loading…
       }
     </h1>
-    <p class="mt-3 max-w-2xl text-stone-600">
+    <p class="mt-3 max-w-2xl text-stone-600 dark:text-stone-400">
       Colony management, pending requests, and invite tokens will live here once the map pillar
       ships. For now, this page exists to prove that auth round-trips work end to end.
     </p>

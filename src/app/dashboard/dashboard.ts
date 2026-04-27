@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { Router, RouterLink } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+import { ThemeToggle } from '../shared/theme-toggle.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink],
+  imports: [RouterLink, ThemeToggle],
   templateUrl: './dashboard.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

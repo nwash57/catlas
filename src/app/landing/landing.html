@@ -1,32 +1,33 @@
-<div class="min-h-dvh bg-stone-50 text-stone-900 antialiased">
+<div class="min-h-dvh bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-50">
   <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-    <a routerLink="/" class="font-serif text-xl font-semibold tracking-tight text-stone-900">
+    <a routerLink="/" class="font-serif text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
       Catlas
     </a>
     <nav class="flex items-center gap-6 text-sm">
-      <a routerLink="/learn" class="text-stone-600 transition hover:text-stone-900">Learn</a>
-      <a routerLink="/clinics" class="text-stone-600 transition hover:text-stone-900">Clinics</a>
-      <a routerLink="/auth/sign-in" class="text-stone-600 transition hover:text-stone-900">Sign in</a>
+      <a routerLink="/learn" class="text-stone-600 transition hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-50">Learn</a>
+      <a routerLink="/clinics" class="text-stone-600 transition hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-50">Clinics</a>
+      <a routerLink="/auth/sign-in" class="text-stone-600 transition hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-50">Sign in</a>
       <a
         routerLink="/auth/sign-up"
-        class="rounded-full bg-stone-900 px-4 py-2 font-medium text-stone-50 transition hover:bg-stone-700"
+        class="rounded-full bg-stone-900 px-4 py-2 font-medium text-stone-50 transition hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
       >
         Get started
       </a>
+      <app-theme-toggle />
     </nav>
   </header>
 
   <main>
     <section class="mx-auto max-w-6xl px-6 pt-16 pb-24 sm:pt-24">
-      <p class="mb-6 font-mono text-xs tracking-[0.2em] text-amber-700 uppercase">
+      <p class="mb-6 font-mono text-xs tracking-[0.2em] text-amber-700 uppercase dark:text-amber-500">
         TNR, coordinated
       </p>
       <h1
-        class="max-w-3xl font-serif text-5xl leading-[1.05] font-semibold tracking-tight text-stone-900 sm:text-6xl"
+        class="max-w-3xl font-serif text-5xl leading-[1.05] font-semibold tracking-tight text-stone-900 sm:text-6xl dark:text-stone-50"
       >
         Bringing the community to community cats.
       </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
         Catlas helps neighbors coordinate Trap-Neuter-Return for feral and free-roaming cat
         colonies. Put your colony on the map, record the cats, and pull in the neighbors already
         feeding them — without ever exposing an exact location to the public.
@@ -34,26 +35,26 @@
       <div class="mt-10 flex flex-wrap gap-3">
         <a
           routerLink="/map"
-          class="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700"
+          class="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
         >
           Explore the map
         </a>
         <a
           routerLink="/learn/what-is-tnr"
-          class="rounded-full border border-stone-300 px-6 py-3 text-sm font-medium text-stone-900 transition hover:border-stone-900"
+          class="rounded-full border border-stone-300 px-6 py-3 text-sm font-medium text-stone-900 transition hover:border-stone-900 dark:border-stone-700 dark:text-stone-50 dark:hover:border-stone-50"
         >
           What is TNR?
         </a>
       </div>
     </section>
 
-    <section class="border-y border-stone-200 bg-white">
+    <section class="border-y border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
       <div class="mx-auto max-w-6xl px-6 py-20">
         <div class="mb-12 max-w-2xl">
           <h2 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
             What Catlas does
           </h2>
-          <p class="mt-3 text-stone-600">
+          <p class="mt-3 text-stone-600 dark:text-stone-400">
             Four things, done carefully. Everything else can wait.
           </p>
         </div>
@@ -61,16 +62,16 @@
           @for (pillar of pillars; track pillar.title; let i = $index) {
             <li class="flex gap-5">
               <span
-                class="mt-1 font-mono text-sm font-medium text-amber-700"
+                class="mt-1 font-mono text-sm font-medium text-amber-700 dark:text-amber-500"
                 aria-hidden="true"
               >
                 {{ (i + 1).toString().padStart(2, '0') }}
               </span>
               <div>
-                <h3 class="font-serif text-xl font-semibold tracking-tight text-stone-900">
+                <h3 class="font-serif text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
                   {{ pillar.title }}
                 </h3>
-                <p class="mt-2 leading-relaxed text-stone-600">{{ pillar.body }}</p>
+                <p class="mt-2 leading-relaxed text-stone-600 dark:text-stone-400">{{ pillar.body }}</p>
               </div>
             </li>
           }
@@ -81,24 +82,24 @@
     <section class="mx-auto max-w-6xl px-6 py-24">
       <div class="grid items-start gap-12 md:grid-cols-[1fr_1.2fr]">
         <div>
-          <p class="mb-4 font-mono text-xs tracking-[0.2em] text-amber-700 uppercase">
+          <p class="mb-4 font-mono text-xs tracking-[0.2em] text-amber-700 uppercase dark:text-amber-500">
             The hard part
           </p>
           <h2 class="font-serif text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
             Your colony stays private — by design, not by promise.
           </h2>
         </div>
-        <div class="space-y-4 text-stone-600 leading-relaxed">
+        <div class="space-y-4 text-stone-600 leading-relaxed dark:text-stone-400">
           <p>
             Mapping feral cats is sensitive. Colonies have been harmed by hoarders, people who
             dislike cats, and well-meaning strangers who trap and remove. Catlas takes that
             seriously at the database level.
           </p>
           <p>
-            Non-members see a <span class="font-medium text-stone-900">fuzzed area</span>, never
+            Non-members see a <span class="font-medium text-stone-900 dark:text-stone-50">fuzzed area</span>, never
             an exact pin. Row-level security in Postgres enforces it — so even a bug in our
             frontend can't leak a coordinate. Photos have their
-            <span class="font-medium text-stone-900">EXIF GPS stripped on upload</span>, and cat
+            <span class="font-medium text-stone-900 dark:text-stone-50">EXIF GPS stripped on upload</span>, and cat
             profiles require colony membership to read.
           </p>
           <p>
@@ -109,20 +110,20 @@
       </div>
     </section>
 
-    <section class="border-t border-stone-200 bg-stone-100">
+    <section class="border-t border-stone-200 bg-stone-100 dark:border-stone-800 dark:bg-stone-900">
       <div class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-20 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
             Start a colony, or find one.
           </h2>
-          <p class="mt-3 max-w-xl text-stone-600">
+          <p class="mt-3 max-w-xl text-stone-600 dark:text-stone-400">
             If you're already feeding a colony, take five minutes to put it on the map. If you're
             a neighbor who's noticed one, see who's caring for it.
           </p>
         </div>
         <a
           routerLink="/map"
-          class="shrink-0 rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700"
+          class="shrink-0 rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
         >
           Open the map
         </a>
@@ -130,15 +131,15 @@
     </section>
   </main>
 
-  <footer class="border-t border-stone-200">
+  <footer class="border-t border-stone-200 dark:border-stone-800">
     <div
-      class="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-10 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between"
+      class="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-10 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between dark:text-stone-500"
     >
       <p>&copy; {{ 2026 }} Catlas. Built by caretakers.</p>
       <nav class="flex gap-6">
-        <a routerLink="/learn" class="transition hover:text-stone-900">Learn</a>
-        <a routerLink="/clinics" class="transition hover:text-stone-900">Clinics</a>
-        <a routerLink="/privacy" class="transition hover:text-stone-900">Privacy</a>
+        <a routerLink="/learn" class="transition hover:text-stone-900 dark:hover:text-stone-50">Learn</a>
+        <a routerLink="/clinics" class="transition hover:text-stone-900 dark:hover:text-stone-50">Clinics</a>
+        <a routerLink="/privacy" class="transition hover:text-stone-900 dark:hover:text-stone-50">Privacy</a>
       </nav>
     </div>
   </footer>

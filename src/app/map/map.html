@@ -1,0 +1,25 @@
+<div class="flex h-dvh flex-col bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-50">
+  <header
+    class="flex shrink-0 items-center justify-between border-b border-stone-200 px-6 py-3 dark:border-stone-800"
+  >
+    <a routerLink="/" class="font-serif text-lg font-semibold tracking-tight">Catlas</a>
+    <div class="flex items-center gap-4 text-sm">
+      @if (loading()) {
+        <span class="font-mono text-xs text-stone-500">Loading colonies…</span>
+      }
+      @if (error()) {
+        <span class="font-mono text-xs text-red-500">{{ error() }}</span>
+      }
+      <a
+        routerLink="/auth/sign-in"
+        class="text-stone-600 transition hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-50"
+        >Sign in</a
+      >
+      <app-theme-toggle />
+    </div>
+  </header>
+
+  <div class="relative flex-1 overflow-hidden">
+    <div #mapContainer class="absolute inset-0"></div>
+  </div>
+</div>

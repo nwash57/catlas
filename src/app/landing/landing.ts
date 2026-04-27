@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { ThemeToggle } from '../shared/theme-toggle.component';
+
 @Component({
   selector: 'app-landing',
-  imports: [RouterLink],
+  imports: [RouterLink, ThemeToggle],
   templateUrl: './landing.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

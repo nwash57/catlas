@@ -51,6 +51,7 @@ src/environments/environment.local.ts
 
 # Custom
 .playwright-mcp/
+supabase/.temp/
 
 # I don't use vs code at all but in future maybe remove for other contributors
 .vscode/
