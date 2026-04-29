@@ -37,7 +37,7 @@ export class ColoniesService {
 
     const { data, error } = await sb
       .from('colonies_public')
-      .select('id, name, description, lat, lng, fuzz_radius_m, cover_photo_path, is_public, member_count, created_at');
+      .select('id, name, description, lat, lng, fuzz_radius_m, cover_photo_path, is_public, member_count, cat_count, eartipped_count, created_at');
 
     this.loading.set(false);
 
@@ -60,7 +60,7 @@ export class ColoniesService {
 
     const { data, error } = await sb
       .from('colonies_public')
-      .select('id, name, description, lat, lng, fuzz_radius_m, cover_photo_path, is_public, member_count, created_at')
+      .select('id, name, description, lat, lng, fuzz_radius_m, cover_photo_path, is_public, member_count, cat_count, eartipped_count, created_at')
       .eq('id', id)
       .single();
 

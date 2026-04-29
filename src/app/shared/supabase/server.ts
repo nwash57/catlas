@@ -18,6 +18,7 @@ export function supabaseServer(req: Request, res: Response): SupabaseClient {
         return Object.entries(jar).map(([name, value]) => ({ name, value: value ?? '' }));
       },
       setAll(cookiesToSet) {
+        if (res.headersSent) return;
         for (const { name, value, options } of cookiesToSet) {
           res.appendHeader('Set-Cookie', serialize(name, value, options));
         }

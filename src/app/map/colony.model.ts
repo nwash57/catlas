@@ -8,6 +8,8 @@ export interface ColonyPublicRow {
   cover_photo_path: string | null;
   is_public: boolean;
   member_count: number;
+  cat_count: number;
+  eartipped_count: number;
   created_at: string;
 }
 
@@ -19,6 +21,8 @@ export interface ColonyPublic {
   coverPhotoPath: string | null;
   isPublic: boolean;
   memberCount: number;
+  catCount: number;
+  eartippedCount: number;
   lng: number;
   lat: number;
 }
@@ -32,6 +36,8 @@ export function parseColonyRow(row: ColonyPublicRow): ColonyPublic {
     coverPhotoPath: row.cover_photo_path,
     isPublic: row.is_public,
     memberCount: row.member_count,
+    catCount: row.cat_count,
+    eartippedCount: row.eartipped_count,
     lng: row.lng,
     lat: row.lat,
   };

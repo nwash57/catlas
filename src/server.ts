@@ -9,6 +9,7 @@ import {
 import express from 'express';
 import { join } from 'node:path';
 
+import { registerCatPhotoRoutes } from './server/cat-photo-routes';
 import { supabaseServer } from './app/shared/supabase/server';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
@@ -29,17 +30,7 @@ app.use((req, res, next) => {
   next();
 });
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+registerCatPhotoRoutes(app);
 
 /**
  * Serve static files from /browser

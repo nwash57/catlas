@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { AuthService } from './auth.service';
 import { AuthShell } from './auth-shell';
@@ -14,6 +14,7 @@ import { AuthShell } from './auth-shell';
 export class SignIn {
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
 
   readonly email = signal('');
   readonly password = signal('');
@@ -32,6 +33,7 @@ export class SignIn {
       this.submitting.set(false);
       return;
     }
-    await this.router.navigateByUrl('/dashboard');
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') ?? '/dashboard';
+    await this.router.navigateByUrl(returnUrl);
   }
 }

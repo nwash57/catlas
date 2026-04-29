@@ -16,13 +16,14 @@ import circle from '@turf/circle';
 import type { Map as MapLibreMap } from 'maplibre-gl';
 
 import { AuthService } from '../auth/auth.service';
+import { CatList } from '../cats/cat-list';
 import { ColoniesService } from '../map/colonies.service';
 import type { ColonyFull, ColonyMembership, ColonyPublic } from '../map/colony.model';
 
 @Component({
   selector: 'app-colony-profile',
   standalone: true,
-  imports: [RouterLink, FormsModule, DatePipe, DecimalPipe],
+  imports: [RouterLink, FormsModule, DatePipe, DecimalPipe, CatList],
   templateUrl: './colony-profile.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },

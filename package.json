@@ -24,10 +24,12 @@
     "@supabase/supabase-js": "^2.104.1",
     "@tailwindcss/typography": "^0.5.19",
     "@turf/circle": "^7.3.5",
+    "busboy": "^1.6.0",
     "cookie": "^1.1.1",
     "express": "^5.1.0",
     "maplibre-gl": "^5.24.0",
     "rxjs": "~7.8.0",
+    "sharp": "^0.34.5",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -35,6 +37,7 @@
     "@angular/cli": "^21.2.7",
     "@angular/compiler-cli": "^21.2.0",
     "@tailwindcss/postcss": "^4.1.12",
+    "@types/busboy": "^1.5.4",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
     "dotenv": "^17.4.2",

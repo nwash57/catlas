@@ -28,7 +28,7 @@ import type { Map as MapLibreMap, Marker } from 'maplibre-gl';
 })
 export class MapPage implements OnDestroy {
   private readonly coloniesService = inject(ColoniesService);
-  private readonly router = inject(Router);
+  protected readonly router = inject(Router);
   protected readonly currentUser = inject(AuthService).currentUser;
 
   @ViewChild('mapContainer') private mapContainerRef?: ElementRef<HTMLDivElement>;

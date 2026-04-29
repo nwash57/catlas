@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
+import { AuthService } from '../auth/auth.service';
 import { ThemeToggle } from '../shared/theme-toggle.component';
 
 @Component({
@@ -9,4 +10,13 @@ import { ThemeToggle } from '../shared/theme-toggle.component';
   templateUrl: './learn-shell.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LearnShell {}
+export class LearnShell {
+  private readonly auth = inject(AuthService);
+  protected readonly router = inject(Router);
+  protected readonly currentUser = this.auth.currentUser;
+
+  async signOut(): Promise<void> {
+    await this.auth.signOut();
+    await this.router.navigateByUrl('/');
+  }
+}

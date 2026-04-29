@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
+import { AuthService } from '../auth/auth.service';
 import { ThemeToggle } from '../shared/theme-toggle.component';
 
 @Component({
@@ -10,6 +11,14 @@ import { ThemeToggle } from '../shared/theme-toggle.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Landing {
+  private readonly auth = inject(AuthService);
+  protected readonly router = inject(Router);
+  protected readonly currentUser = this.auth.currentUser;
+
+  async signOut(): Promise<void> {
+    await this.auth.signOut();
+    await this.router.navigateByUrl('/');
+  }
   readonly pillars = [
     {
       title: 'A map of the colonies around you',
